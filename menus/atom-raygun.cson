@@ -1,0 +1,16 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  '.overlayer':
+      'Enable atom-raygun': 'atom-raygun:toggle'
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'atom-raygun'
+      'submenu': [
+        { 'label': 'Toggle', 'command': 'atom-raygun:toggle' }
+      ]
+    ]
+  }
+]

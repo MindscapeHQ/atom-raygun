@@ -1,0 +1,15 @@
+{
+  "name": "atom-raygun",
+  "main": "./lib/atom-raygun",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A short description of your package",
+  "activationEvents": ["atom-raygun:toggle"],
+  "repository": "https://github.com/atom/atom-raygun",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}
