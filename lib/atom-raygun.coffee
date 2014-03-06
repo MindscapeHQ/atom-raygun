@@ -1,13 +1,12 @@
-AtomRaygunView = require './atom-raygun-view'
+ApplicationList = require './application-list'
 
 module.exports =
-  atomRaygunView: null
+  applicationListView: null
 
   activate: (state) ->
-    @atomRaygunView = new AtomRaygunView(state.atomRaygunViewState)
+    @applicationListView = new ApplicationList();
 
   deactivate: ->
-    @atomRaygunView.destroy()
+    @applicationListView.destroy()
 
   serialize: ->
-    atomRaygunViewState: @atomRaygunView.serialize()
