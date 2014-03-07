@@ -1,4 +1,5 @@
 ApplicationList = require './application-list'
+ErrorList = require './error-group'
 
 module.exports =
   applicationListView: null
@@ -15,4 +16,6 @@ module.exports =
   serialize: ->
 
   applicationSelected: (event, item) ->
-    console.log("#{item.name}")
+    options =
+      id: item.id
+    atom.workspaceView.append(new ErrorList(options))

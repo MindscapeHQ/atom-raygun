@@ -1,11 +1,23 @@
 {$} = require 'atom'
 
+root = "https://webapi.raygun.io"
+apikey = ""
+
 module.exports =
   applications: ->
     options =
-      url: "https://webapi.raygun.io/applications"
+      url: "#{root}/applications"
       type: "GET"
       headers:
-        "X-ApiKey": ""
+        "X-ApiKey": apikey
+
+    $.ajax(options)
+
+  errors: (id) ->
+    options =
+      url: "#{root}/applications/#{id}/errors/active?start=0&count=20"
+      type: "GET"
+      headers:
+        "X-ApiKey": apikey
 
     $.ajax(options)
