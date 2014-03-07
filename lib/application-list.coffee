@@ -16,7 +16,7 @@ class ApplicationList extends SelectListView
 
   confirmed: (item) ->
     @cancel()
-    console.log "#{item.name} was selected"
+    @trigger('atom-raygun:application-selected', item)
 
   destroy: ->
     @detach()
