@@ -8,14 +8,21 @@ module.exports =
     unless atom.config.get('atom-raygun.apikey')
       atom.config.set('atom-raygun.apikey', '')
     @applicationListView = new ApplicationList()
-    @applicationListView.on 'atom-raygun:application-selected', @applicationSelected
+    @applicationListView.on 'atom-raygun:application-selected', (event, item) =>
+      @applicationSelected(item)
 
   deactivate: ->
     @applicationListView.destroy()
 
   serialize: ->
 
-  applicationSelected: (event, item) ->
+  applicationSelected: (application) ->
     options =
-      id: item.id
-    atom.workspaceView.append(new ErrorList(options))
+      id: application.id
+    view = new ErrorList(options)
+    view.on 'atom-raygun:error-selected', (event, error) =>
+      @errorSelected(error)
+    atom.workspaceView.append(view)
+
+  errorSelected: (error) ->
+    console.log "#{error.message}"

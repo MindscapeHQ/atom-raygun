@@ -16,3 +16,4 @@ class ErrorGroupList extends SelectListView
 
   confirmed: (item) ->
     @cancel()
+    @trigger('atom-raygun:error-selected', item)
