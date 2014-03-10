@@ -10,6 +10,9 @@ class ApplicationList extends SelectListView
       @setItems response
     atom.workspaceView.command "atom-raygun:toggle", => @toggle()
 
+  getFilterKey: ->
+    return 'name'
+
   viewForItem: (item) ->
     $$ ->
       @li 'data-item': item, "#{item.name}"

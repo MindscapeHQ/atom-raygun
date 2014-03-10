@@ -10,6 +10,9 @@ class ErrorGroupList extends SelectListView
       @setItems response.records
       @focusFilterEditor()
 
+  getFilterKey: ->
+    return 'message'
+
   viewForItem: (item) ->
     $$ ->
       @li 'data-item': item, "#{item.message}"
