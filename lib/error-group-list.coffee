@@ -1,4 +1,4 @@
-{$,ScrollView} = require 'atom'
+{$,$$,ScrollView} = require 'atom'
 
 module.exports =
 class ErrorGroupListView extends ScrollView
@@ -7,7 +7,7 @@ class ErrorGroupListView extends ScrollView
       @div class: 'error-group-resize-handle', outlet: 'resizeHandle'
       @div =>
         @h1 'Error Group View'
-        @ol outlet: 'errorList'
+        @ul outlet: 'errorList'
 
   initialize: (state) ->
     super
@@ -24,3 +24,9 @@ class ErrorGroupListView extends ScrollView
 
   resizeView: ({pageY}) =>
     @height($(document.body).height() - pageY)
+
+  populateErrors: (errors) ->
+    @errorList.empty()
+    errors.forEach (err) =>
+      @errorList.append $$ ->
+        @li "#{err.message}"
