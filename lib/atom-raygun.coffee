@@ -33,7 +33,7 @@ module.exports =
 
   applicationSelected: (application) ->
     Api.errors(application.id).done (response) =>
-      @errorGroupListView.populateErrors(response.records)
+      @errorGroupListView.populateErrors(application, response.records)
       if !@errorGroupListView.hasParent()
         atom.workspaceView.appendToBottom(@errorGroupListView)
 

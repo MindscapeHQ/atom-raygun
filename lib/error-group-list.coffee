@@ -7,7 +7,7 @@ class ErrorGroupListView extends ScrollView
     @div class: 'atom-raygun', =>
       @div class: 'error-group-resize-handle', outlet: 'resizeHandle'
       @div class: 'raygun-results', =>
-        @h1 'Error Group View'
+        @h1 outlet: 'heading'
         @ul outlet: 'errorList'
 
   initialize: (state) ->
@@ -27,7 +27,8 @@ class ErrorGroupListView extends ScrollView
   resizeView: ({pageY}) =>
     @height($(document.body).height() - pageY)
 
-  populateErrors: (errors) ->
+  populateErrors: (application, errors) ->
+    @heading.text "#{application.name} Errors"
     @errorList.empty()
     views = errors.map (err) ->
       new ErrorView(err)
