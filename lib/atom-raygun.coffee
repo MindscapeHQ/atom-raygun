@@ -15,6 +15,8 @@ module.exports =
     @errorGroupListView = new ErrorGroupListView()
     @applicationListView.on 'atom-raygun:application-selected', (event, item) =>
       @applicationSelected(item)
+    @errorGroupListView.on 'atom-raygun:error-selected', (event, item) =>
+      @errorSelected(item)
 
   deactivate: ->
     @applicationListView.destroy()
@@ -36,4 +38,3 @@ module.exports =
     options =
       initialLine: result.lineNumber
     atom.workspace.open(result.fileName, options)
-    atom.workspaceView.appendToBottom(new ErrorGroupListView())

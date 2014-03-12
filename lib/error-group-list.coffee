@@ -1,4 +1,5 @@
 {$,$$,ScrollView} = require 'atom'
+ErrorView = require './error'
 
 module.exports =
 class ErrorGroupListView extends ScrollView
@@ -13,6 +14,7 @@ class ErrorGroupListView extends ScrollView
     super
 
     @on 'mousedown', '.error-group-resize-handle', (e) => @resizeStarted(e)
+    @on 'click', '.error', (e) => @errorClicked(e)
 
   resizeStarted: =>
     $(document.body).on 'mousemove', @resizeView
@@ -27,6 +29,10 @@ class ErrorGroupListView extends ScrollView
 
   populateErrors: (errors) ->
     @errorList.empty()
-    errors.forEach (err) =>
-      @errorList.append $$ ->
-        @li "#{err.message}"
+    views = errors.map (err) ->
+      new ErrorView(err)
+    views.forEach((v) => @errorList.append(v))
+
+  errorClicked: (event) ->
+    view = $(event.currentTarget).view()
+    @trigger 'atom-raygun:error-selected', view.errorData
