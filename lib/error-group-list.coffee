@@ -6,7 +6,7 @@ class ErrorGroupListView extends ScrollView
   @content: ->
     @div =>
       @div class: 'error-group-resize-handle', outlet: 'resizeHandle'
-      @div =>
+      @div class: 'raygun-results', =>
         @h1 'Error Group View'
         @ul outlet: 'errorList'
 

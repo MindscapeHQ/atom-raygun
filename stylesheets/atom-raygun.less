@@ -6,8 +6,30 @@
 
 .atom-raygun {
 }
-
+.raygun-results {
+  h1 {
+    color: @text-color;
+    margin: 0 0 10px 40px;
+    padding: 20px 0;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 16px 40px;
+      cursor: pointer;
+      border-top: 1px solid @pane-item-border-color;
+    }
+    li:hover {
+      color: @text-color-highlight;
+      background: @background-color-selected;
+    }
+  }
+}
 .error-group-resize-handle {
   height: 10px;
   cursor: row-resize;
+}
+.error {
+  color: @text-color;
 }
