@@ -4,7 +4,7 @@ ErrorView = require './error'
 module.exports =
 class ErrorGroupListView extends ScrollView
   @content: ->
-    @div =>
+    @div class: 'atom-raygun', =>
       @div class: 'error-group-resize-handle', outlet: 'resizeHandle'
       @div class: 'raygun-results', =>
         @h1 'Error Group View'

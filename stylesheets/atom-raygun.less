@@ -5,11 +5,15 @@
 @import "ui-variables";
 
 .atom-raygun {
+  position: relative;
 }
+
 .raygun-results {
+  height: 100%;
+  overflow-y: scroll;
   h1 {
     color: @text-color;
-    margin: 0 0 10px 40px;
+    margin: 0 0 0 40px;
     padding: 20px 0;
   }
   ul {
@@ -28,7 +32,10 @@
 }
 .error-group-resize-handle {
   height: 10px;
+  width: 100%;
   cursor: row-resize;
+  position: absolute;
+  top: 0;
 }
 .error {
   color: @text-color;
