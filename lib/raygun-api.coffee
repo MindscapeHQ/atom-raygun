@@ -1,16 +1,16 @@
 {$} = require 'atom'
 
 root = "https://webapi.raygun.io"
-apikey = ""
-headers =
-  "X-ApiKey": apikey
+generateHeaders = ->
+  headers =
+    "X-ApiKey": atom.config.get('atom-raygun.apikey')
 
 module.exports =
   applications: ->
     options =
       url: "#{root}/applications"
       type: "GET"
-      headers: headers
+      headers: generateHeaders()
 
     $.ajax(options)
 
@@ -18,7 +18,7 @@ module.exports =
     options =
       url: "#{root}/applications/#{id}/errors/active?start=0&count=20"
       type: "GET"
-      headers: headers
+      headers: generateHeaders()
 
     $.ajax(options)
 
@@ -26,6 +26,6 @@ module.exports =
     options =
       url: "#{root}/errors/#{id}/occurrences/latest"
       type: "GET"
-      headers: headers
+      headers: generateHeaders()
 
     $.ajax(options)
