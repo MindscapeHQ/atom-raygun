@@ -8,7 +8,7 @@ class ApplicationList extends SelectListView
     @addClass('overlay from-top')
     api.applications().done (response) =>
       @setItems response
-    atom.workspaceView.command "atom-raygun:toggle", => @toggle()
+    atom.workspaceView.command "atom-raygun:choose-application", => @toggle()
 
   getFilterKey: ->
     return 'name'

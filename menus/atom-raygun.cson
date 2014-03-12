@@ -1,15 +1,15 @@
 # See https://atom.io/docs/latest/creating-a-package#menus for more details
 'context-menu':
   '.overlayer':
-      'Enable atom-raygun': 'atom-raygun:toggle'
+      'Choose Application': 'atom-raygun:choose-application'
 
 'menu': [
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'atom-raygun'
+      'label': 'Raygun'
       'submenu': [
-        { 'label': 'Toggle', 'command': 'atom-raygun:toggle' }
+        { 'label': 'Choose Application', 'command': 'atom-raygun:choose-application' }
       ]
     ]
   }
