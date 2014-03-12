@@ -10,6 +10,7 @@
       'label': 'Raygun'
       'submenu': [
         { 'label': 'Choose Application', 'command': 'atom-raygun:choose-application' }
+        { 'label': 'Show/Hide Errors',   'command': 'atom-raygun:toggle-errors'}
       ]
     ]
   }
