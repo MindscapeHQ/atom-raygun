@@ -7,7 +7,7 @@ class ErrorGroupListView extends ScrollView
     @div class: 'atom-raygun', =>
       @div class: 'error-group-resize-handle', outlet: 'resizeHandle'
       @div class: 'raygun-results', =>
-        @h1 outlet: 'heading'
+        @h1 'Choose Application first', outlet: 'heading'
         @ul outlet: 'errorList'
 
   initialize: (state) ->
