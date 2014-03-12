@@ -13,6 +13,7 @@ class ErrorGroupListView extends ScrollView
   initialize: (state) ->
     super
 
+    atom.workspaceView.command "atom-raygun:toggle-errors", => @toggle()
     @on 'mousedown', '.error-group-resize-handle', (e) => @resizeStarted(e)
     @on 'click', '.error', (e) => @errorClicked(e)
 
@@ -37,3 +38,9 @@ class ErrorGroupListView extends ScrollView
   errorClicked: (event) ->
     view = $(event.currentTarget).view()
     @trigger 'atom-raygun:error-selected', view.errorData
+
+  toggle: ->
+    if @hasParent()
+      @detach()
+    else
+      atom.workspaceView.appendToBottom(this)

@@ -11,7 +11,6 @@ module.exports =
   activate: (state) ->
     unless atom.config.get('atom-raygun.apikey')
       atom.config.set('atom-raygun.apikey', '')
-    atom.workspaceView.command "atom-raygun:toggle-errors", => @toggleErrorsView()
     @applicationListView = new ApplicationList()
     @errorGroupListView = new ErrorGroupListView()
     @applicationListView.on 'atom-raygun:application-selected', (event, item) =>
@@ -24,12 +23,6 @@ module.exports =
     @errorGroupListView.destroy()
 
   serialize: ->
-
-  toggleErrorsView: ->
-    if @errorGroupListView.hasParent()
-      @errorGroupListView.detach()
-    else
-      atom.workspaceView.appendToBottom(@errorGroupListView)
 
   applicationSelected: (application) ->
     Api.errors(application.id).done (response) =>
