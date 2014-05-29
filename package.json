@@ -1,9 +1,9 @@
 {
   "name": "atom-raygun",
   "main": "./lib/atom-raygun",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
-  "description": "A short description of your package",
+  "description": "View errors from Raygun and navigate to the errors within your project",
   "repository": "https://github.com/MindscapeHQ/atom-raygun",
   "license": "MIT",
   "engines": {
